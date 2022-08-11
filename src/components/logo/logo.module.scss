@@ -1,0 +1,14 @@
+.logoHeader {
+  &__link {
+    text-align: center;
+    flex: 1 0 auto;
+  }
+
+  &__container {
+    align-self: center;
+
+    &__logo {
+      height: 80px;
+    }
+  }
+}
