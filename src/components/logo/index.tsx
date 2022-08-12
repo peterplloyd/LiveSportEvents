@@ -9,7 +9,7 @@ interface ILogoOptions {
 }
 
 const Logo: React.FC<ILogoOptions> = ({ link, title, alt, src }) => (
-	<header className={styles.logoHeader}>
+	<div className={styles.logoHeader}>
 		{link ? (
 			<a href={link}>
 				<div className={styles.logoHeader__container}>
@@ -31,7 +31,7 @@ const Logo: React.FC<ILogoOptions> = ({ link, title, alt, src }) => (
 				/>
 			</div>
 		)}
-	</header>
+	</div>
 );
 
 export default Logo;

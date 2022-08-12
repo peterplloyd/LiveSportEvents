@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
+
 import Header from './components/header'
-import LiveFootballEvents from './features/liveEvents/footballEvents';
+import LiveFootballEvents from './features/LiveFootballEvents';
+import styles from './app.module.scss';
 
 const App = () => {
   return (
-    <div className="App">
-     <Header />
+    <div className={styles.appContainer}>
+        <Header />
         <LiveFootballEvents />
     </div>
   );

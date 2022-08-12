@@ -1,6 +1,8 @@
 .logoHeader {
+display: inline-flex;
+
+
   &__link {
-    text-align: center;
     flex: 1 0 auto;
   }
 
@@ -8,7 +10,7 @@
     align-self: center;
 
     &__logo {
-      height: 80px;
+      min-height: 80px;
     }
   }
 }
