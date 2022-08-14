@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../logo';
+import Logo from '../Logo';
 import skyBetLogo from '../../images/logo.png'
 import styles from './header.module.scss';
 

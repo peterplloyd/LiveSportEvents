@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import FootballEvent from './footballEvent';
+import React from 'react';
 import ws from '../../config/socketConfig';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import Button from '../../components/Button';
 
+import FootballEvent from './footballEvent';
 import {
 	selectLiveFootballEvents,
 	setLiveFootballEvents,
+	selectIsDecimal,
+	setIsDecimal,
 } from './footballEventSlice';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import styles from './liveFootballEvents.module.scss';
 
 const LiveFootballEvents: React.FC = () => {
 	const liveEvents = useAppSelector(selectLiveFootballEvents);
+	const isDecimalOdds = useAppSelector(selectIsDecimal);
 	const dispatch = useAppDispatch();
 
 	ws.onopen = () => {
@@ -26,17 +30,29 @@ const LiveFootballEvents: React.FC = () => {
 			}
 		} catch (err) {}
 	};
-	const footballEvents = liveEvents.length && liveEvents.map((event: any) => (
-		 <FootballEvent key={event.eventId} event={event} />
-	));
+
+	const footballEvents =
+		liveEvents.length &&
+		liveEvents.map((event: any) => (
+			<FootballEvent key={event.eventId} event={event} />
+		));
+
+	const onClickOddsFormat = () => {
+		dispatch(setIsDecimal(!isDecimalOdds));
+	};
 
 	return (
 		<div className={styles.footballEvents__container}>
 			<div className={styles.footballEvents__container__header}>
-				<h1>In-Play Football</h1>
+				<div className={styles.footballEvents__container__header__title}>
+					<h1>In-Play Football</h1>
+				</div>
+				<div className={styles.footballEvents__container__header__toggleOdds}>
+					<Button onClick={onClickOddsFormat}>Toggle {isDecimalOdds ? 'Decimals' : 'Fractions'}</Button>
+				</div>
 			</div>
 			<main className={styles.footballEvents__container__main}>
-			{footballEvents}
+				{footballEvents}
 			</main>
 		</div>
 	);

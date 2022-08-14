@@ -4,14 +4,22 @@
 	width: 100%;
 
 	&__header {
-		background-image: linear-gradient(to left, $color-brand-3, $color-brand-4, $color-brand-5);
-        color: $color-brand-1;
+		background-image: linear-gradient(
+			to left,
+			$color-brand-3,
+			$color-brand-4,
+			$color-brand-5
+		);
+		color: $color-brand-1;
 		margin-bottom: 16px;
-        padding: 24px 16px 16px 16px;
+		padding: 24px 20px 16px 20px;
 		position: relative;
 		text-align: left;
-        text-transform: uppercase;
-	
+		text-transform: uppercase;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	&__main {

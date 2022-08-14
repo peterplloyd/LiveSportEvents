@@ -1,37 +1,60 @@
-// @ts-nocheck
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import ws from '../../../config/socketConfig';
-import { selectOutcomes, setOutcomes } from '../footballEventSlice';
+import {
+	selectIsDecimal,
+	selectOutcomes,
+	setOutcomes,
+} from '../footballEventSlice';
 
 interface IFootballOutcomeOptions {
-	outcomeId: any;
+	outcomeId: number;
 }
 
 const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 	outcomeId,
 }) => {
+	ws.send(JSON.stringify({ type: 'getOutcome', id: outcomeId }));
+
 	const outcomes = useAppSelector(selectOutcomes);
+	const isDecimalOdds = useAppSelector(selectIsDecimal);
+
+	// TODO Fix Type Error
+	// @ts-ignore comment
 	const outcome = outcomes[outcomeId];
 	const dispatch = useAppDispatch();
 
-	ws.send(JSON.stringify({ type: 'getOutcome', id: outcomeId }));
+	ws.onmessage = function (event) {
+		const json = JSON.parse(event.data);
 
-	useEffect(() => {
-		ws.onmessage = function (event) {
-			const json = JSON.parse(event.data);
+		if (json.type === 'OUTCOME_DATA') {
+			dispatch(setOutcomes(json.data));
+		}
+	};
 
-			if (json.type === 'OUTCOME_DATA') { 
-				dispatch(setOutcomes(json.data));
-			}
-		};
-	}, [dispatch, outcomeId]);
-
-	return (
-		<div>
-			<p>{outcome?.name}</p>
-		</div>
-	);
+	if (isDecimalOdds && outcome) {
+		return (
+			<div>
+				<p>{outcome.name}</p>
+				<p>{outcome.price.decimal}</p>
+			</div>
+		);
+	} else if (!isDecimalOdds && outcome) {
+		return (
+			<div>
+				<p>{outcome.name}</p>
+				<p>
+					{outcome.price.den} / {outcome.price.num}
+				</p>
+			</div>
+		);
+	} else {
+		return (
+			<div>
+				<p>No outcome found</p>
+			</div>
+		);
+	}
 };
 
 export default FootballEventOutcome;

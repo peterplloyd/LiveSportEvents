@@ -4,17 +4,19 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 export interface EventState {
-	liveEvents: [];
+	decimalOdds: boolean;
 	events: object;
-	markets: {};
+	liveEvents: object[];
+	markets: object;
 	outcomes: object;
 }
 
 const initialState: EventState = {
-	liveEvents: [],
+	decimalOdds: true,
 	events: {},
+	liveEvents: [],
 	markets: {},
-	outcomes: {},
+	outcomes: {}
 };
 
 export const eventSlice = createSlice({
@@ -24,6 +26,9 @@ export const eventSlice = createSlice({
 	reducers: {
 		setEvents: (state, action) => {
 			state.events[action.payload.eventId] = action.payload;
+		},
+		setIsDecimal: (state, action) => {
+			state.decimalOdds = action.payload;
 		},
 		setLiveFootballEvents: (state, action) => {
 			state.liveEvents = action.payload;
@@ -37,13 +42,15 @@ export const eventSlice = createSlice({
 	},
 });
 
-export const { setEvents, setLiveFootballEvents, setMarkets, setOutcomes } =
+export const { setEvents, setIsDecimal, setLiveFootballEvents, setMarkets, setOutcomes } =
 	eventSlice.actions;
 
-export const selectLiveFootballEvents = (state: RootState) =>
-	state.liveFootballEvents.liveEvents;
 export const selectEvents = (state: RootState) =>
 	state.liveFootballEvents.events;
+export const selectIsDecimal = (state: RootState) =>
+	state.liveFootballEvents.decimalOdds;
+export const selectLiveFootballEvents = (state: RootState) =>
+	state.liveFootballEvents.liveEvents;
 export const selectMarkets = (state: RootState) =>
 	state.liveFootballEvents.markets;
 export const selectOutcomes = (state: RootState) =>
