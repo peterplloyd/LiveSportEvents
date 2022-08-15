@@ -1,0 +1,22 @@
+@import '../../styles/colorBrand.scss';
+
+.footer {
+	width: 100%;
+	background-image: linear-gradient(
+		to left,
+		$color-brand-3,
+		$color-brand-4,
+		$color-brand-5
+	);
+	color: $color-brand-1;
+	min-height: 20vh;
+	display: flex;
+	justify-content: center;
+	border-top: 1px solid $color-brand-8;
+	align-items: center;
+	font-size: 14px;
+
+	&__container {
+		padding: 24px 20px 16px 20px;
+	}
+}
