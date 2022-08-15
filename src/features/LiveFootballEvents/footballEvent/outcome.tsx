@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import ws from '../../../config/socketConfig';
+import Spinner from '../../../components/Spinner';
 import {
 	selectIsDecimal,
 	selectOutcomes,
@@ -51,7 +52,7 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 	} else {
 		return (
 			<div>
-				<p>No outcome found</p>
+				<Spinner />
 			</div>
 		);
 	}

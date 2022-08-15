@@ -1,6 +1,7 @@
 import React from 'react';
 import ws from '../../config/socketConfig';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import Spinner from '../../components/Spinner'
 import Button from '../../components/Button';
 
 import FootballEvent from './footballEvent';
@@ -52,7 +53,7 @@ const LiveFootballEvents: React.FC = () => {
 				</div>
 			</div>
 			<main className={styles.footballEvents__container__main}>
-				{footballEvents}
+				{footballEvents ? footballEvents : <Spinner />}
 			</main>
 		</div>
 	);

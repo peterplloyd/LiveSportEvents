@@ -3,6 +3,7 @@ import React from 'react';
 import ws from '../../../config/socketConfig';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import { setMarkets, setEvents, selectMarkets } from '../footballEventSlice';
+import Spinner from '../../../components/Spinner';
 import FootballEventOutcome from './outcome';
 import styles from './footballEvent.module.scss';
 
@@ -98,7 +99,13 @@ const FootballEvent: React.FC<IFootballEventOptions> = ({ event }) => {
 					styles.liveFootballEvents_footballEvents__container__event__outcome
 				}
 			>
-				{marketOutcomes}
+				{marketOutcomes ? (
+					marketOutcomes
+				) : (
+					<div>
+						<Spinner />
+					</div>
+				)}
 			</div>
 		</div>
 	);
