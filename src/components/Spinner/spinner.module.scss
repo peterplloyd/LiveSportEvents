@@ -1,0 +1,9 @@
+@import '../../styles/mediaQueries.scss';
+
+.spinner {
+	height: 60px;
+
+	@media only screen and (min-device-width: $tablet-landscape) {
+		height: 100px;
+	}
+}

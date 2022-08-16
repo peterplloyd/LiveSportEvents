@@ -96,16 +96,10 @@ const FootballEvent: React.FC<IFootballEventOptions> = ({ event }) => {
 			</div>
 			<div
 				className={
-					styles.liveFootballEvents_footballEvents__container__event__outcome
+					styles.liveFootballEvents_footballEvents__container__event__outcomes
 				}
 			>
-				{marketOutcomes ? (
-					marketOutcomes
-				) : (
-					<div>
-						<Spinner />
-					</div>
-				)}
+				{marketOutcomes ? marketOutcomes : <Spinner />}
 			</div>
 		</div>
 	);

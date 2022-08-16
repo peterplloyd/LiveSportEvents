@@ -7,6 +7,8 @@ import {
 	selectOutcomes,
 	setOutcomes,
 } from '../footballEventSlice';
+import styles from './footballEvent.module.scss';
+import { roundNumber } from '../../../helper/roundNumber';
 
 interface IFootballOutcomeOptions {
 	outcomeId: number;
@@ -35,14 +37,22 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 
 	if (isDecimalOdds && outcome) {
 		return (
-			<div>
+			<div
+				className={
+					styles.liveFootballEvents_footballEvents__container__event__outcomes__outcome
+				}
+			>
 				<p>{outcome.name}</p>
-				<p>{outcome.price.decimal}</p>
+				<p>{roundNumber(true, outcome.price.decimal)}</p>
 			</div>
 		);
 	} else if (!isDecimalOdds && outcome) {
 		return (
-			<div>
+			<div
+				className={
+					styles.liveFootballEvents_footballEvents__container__event__outcomes__outcome
+				}
+			>
 				<p>{outcome.name}</p>
 				<p>
 					{outcome.price.den} / {outcome.price.num}
@@ -51,7 +61,11 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 		);
 	} else {
 		return (
-			<div>
+			<div
+				className={
+					styles.liveFootballEvents_footballEvents__container__event__outcomes__outcome
+				}
+			>
 				<Spinner />
 			</div>
 		);

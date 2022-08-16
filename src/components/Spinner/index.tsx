@@ -1,8 +1,9 @@
 import spinner from '../../images/spinner.gif';
+import styles from './spinner.module.scss'
 
 const Spinner: React.FC = () => (
 	<div>
-		<img src={spinner} height="100px" alt="Spinner" />
+		<img className={styles.spinner} src={spinner} alt="Spinner" />
 	</div>
 );
 
