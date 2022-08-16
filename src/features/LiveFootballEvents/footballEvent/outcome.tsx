@@ -6,6 +6,7 @@ import {
 	selectIsDecimal,
 	selectOutcomes,
 	setOutcomes,
+	setPrice,
 } from '../footballEventSlice';
 import styles from './footballEvent.module.scss';
 import { roundNumber } from '../../../helpers/roundNumber';
@@ -17,6 +18,7 @@ interface IFootballOutcomeOptions {
 const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 	outcomeId,
 }) => {
+	// Get Outcomes
 	ws.send(JSON.stringify({ type: 'getOutcome', id: outcomeId }));
 
 	const outcomes = useAppSelector(selectOutcomes);
@@ -32,6 +34,10 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 
 		if (json.type === 'OUTCOME_DATA') {
 			dispatch(setOutcomes(json.data));
+		}
+
+		if (json.type === 'PRICE_CHANGE' && json.data?.outcomeId === outcomeId) {
+			dispatch(setPrice(json.data));
 		}
 	};
 

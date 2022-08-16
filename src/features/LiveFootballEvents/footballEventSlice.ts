@@ -39,10 +39,13 @@ export const eventSlice = createSlice({
 		setOutcomes: (state, action) => {
 			state.outcomes[action.payload.outcomeId] = action.payload;
 		},
+		setPrice: (state, action) => {
+			state.outcomes[action.payload.outcomeId].price = action.payload.price
+		}
 	},
 });
 
-export const { setEvents, setIsDecimal, setLiveFootballEvents, setMarkets, setOutcomes } =
+export const { setEvents, setIsDecimal, setLiveFootballEvents, setMarkets, setOutcomes, setPrice } =
 	eventSlice.actions;
 
 export const selectEvents = (state: RootState) =>

@@ -41,7 +41,10 @@ interface ICompetitorsData {
 }
 
 const FootballEvent: React.FC<IFootballEventOptions> = ({ event }) => {
+	// Get the Event
 	ws.send(JSON.stringify({ type: 'getEvent', id: event.eventId }));
+	
+	// Get the Markets
 	ws.send(JSON.stringify({ type: 'getMarket', id: event.markets[0] }));
 
 	const markets = useAppSelector(selectMarkets);

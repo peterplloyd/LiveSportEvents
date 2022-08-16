@@ -1,7 +1,7 @@
 import React from 'react';
 import ws from '../../config/socketConfig';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/Spinner';
 import Button from '../../components/Button';
 
 import FootballEvent from './FootballEvent';
@@ -20,6 +20,8 @@ const LiveFootballEvents: React.FC = () => {
 
 	ws.onopen = () => {
 		ws.send(JSON.stringify({ type: 'getLiveEvents', primaryMarkets: true }));
+		// Subscribe to outcome changes
+		ws.send(JSON.stringify({ type: 'subscribe', keys: [`o.*`] }));
 	};
 
 	ws.onmessage = function (event) {
@@ -49,7 +51,9 @@ const LiveFootballEvents: React.FC = () => {
 					<h1>In-Play Football</h1>
 				</div>
 				<div className={styles.footballEvents__container__header__toggleOdds}>
-					<Button onClick={onClickOddsFormat}>Toggle {isDecimalOdds ? 'Decimals' : 'Fractions'}</Button>
+					<Button onClick={onClickOddsFormat}>
+						Toggle {isDecimalOdds ? 'Decimals' : 'Fractions'}
+					</Button>
 				</div>
 			</div>
 			<main className={styles.footballEvents__container__main}>
