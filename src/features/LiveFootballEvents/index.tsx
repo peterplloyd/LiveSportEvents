@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import Spinner from '../../components/Spinner'
 import Button from '../../components/Button';
 
-import FootballEvent from './footballEvent';
+import FootballEvent from './FootballEvent';
 import {
 	selectLiveFootballEvents,
 	setLiveFootballEvents,
