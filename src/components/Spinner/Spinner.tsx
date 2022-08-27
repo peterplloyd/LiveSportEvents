@@ -1,3 +1,4 @@
+import React from 'react';
 import spinner from '../../images/Spinner.gif';
 import styles from './Spinner.module.scss';
 
