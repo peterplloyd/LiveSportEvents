@@ -8,7 +8,7 @@ import {
 	setOutcomes,
 	setPrice,
 } from '../FootballEventSlice';
-import styles from './footballEvent.module.scss';
+import styles from './FootballEvent.module.scss';
 import RoundNumber from '../../../helpers/RoundNumber';
 
 interface IFootballOutcomeOptions {
