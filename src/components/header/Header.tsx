@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../Logo';
-import skyBetLogo from '../../images/logo.png'
-import styles from './header.module.scss';
+import Logo from '../Logo/Logo';
+import skyBetLogo from '../../images/Logo.png'
+import styles from './Header.module.scss';
 
 const Header = () => {
   return (

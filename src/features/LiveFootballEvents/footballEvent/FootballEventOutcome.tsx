@@ -1,15 +1,15 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
-import ws from '../../../config/socketConfig';
-import Spinner from '../../../components/Spinner';
+import ws from '../../../config/SocketConfig';
+import Spinner from '../../../components/Spinner/Spinner';
 import {
 	selectIsDecimal,
 	selectOutcomes,
 	setOutcomes,
 	setPrice,
-} from '../footballEventSlice';
+} from '../FootballEventSlice';
 import styles from './footballEvent.module.scss';
-import { roundNumber } from '../../../helpers/roundNumber';
+import RoundNumber from '../../../helpers/RoundNumber';
 
 interface IFootballOutcomeOptions {
 	outcomeId: number;
@@ -49,7 +49,7 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({
 				}
 			>
 				<p>{outcome.name}</p>
-				<p>{roundNumber(true, outcome.price.decimal)}</p>
+				<p>{RoundNumber(true, outcome.price.decimal)}</p>
 			</div>
 		);
 	} else if (!isDecimalOdds && outcome) {

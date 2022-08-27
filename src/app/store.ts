@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import LiveFootballEventsReducer from '../features/LiveFootballEvents/footballEventSlice';
+import LiveFootballEventsReducer from '../features/LiveFootballEvents/FootballEventSlice';
 
 
 export const store = configureStore({

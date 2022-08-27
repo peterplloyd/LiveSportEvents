@@ -1,17 +1,17 @@
 import React from 'react';
-import ws from '../../config/socketConfig';
+import ws from '../../config/SocketConfig';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import Spinner from '../../components/Spinner';
-import Button from '../../components/Button';
+import Spinner from '../../components/Spinner/Spinner';
+import Button from '../../components/Button/Button';
 
-import FootballEvent from './FootballEvent';
+import FootballEvent from './FootballEvent/FootballEvent';
 import {
 	selectLiveFootballEvents,
 	setLiveFootballEvents,
 	selectIsDecimal,
 	setIsDecimal,
-} from './footballEventSlice';
-import styles from './liveFootballEvents.module.scss';
+} from './FootballEventSlice';
+import styles from './LiveFootballEvents.module.scss';
 
 const LiveFootballEvents: React.FC = () => {
 	const liveEvents = useAppSelector(selectLiveFootballEvents);

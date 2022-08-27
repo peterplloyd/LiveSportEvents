@@ -1,9 +1,8 @@
 import React from 'react';
-
-import Header from './components/Header'
-import Footer from './components/Footer'
-import LiveFootballEvents from './features/LiveFootballEvents';
-import styles from './app.module.scss';
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import LiveFootballEvents from './features/LiveFootballEvents/LiveFootballEvents';
+import styles from './App.module.scss';
 
 const App = () => {
   return (

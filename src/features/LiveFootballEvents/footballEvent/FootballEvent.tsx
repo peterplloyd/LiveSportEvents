@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ws from '../../../config/socketConfig';
+import ws from '../../../config/SocketConfig';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
-import { setMarkets, setEvents, selectMarkets } from '../footballEventSlice';
-import Spinner from '../../../components/Spinner';
-import FootballEventOutcome from './outcome';
-import styles from './footballEvent.module.scss';
+import { setMarkets, setEvents, selectMarkets } from '../FootballEventSlice';
+import Spinner from '../../../components/Spinner/Spinner';
+import FootballEventOutcome from './FootballEventOutcome';
+import styles from './FootballEvent.module.scss';
 
 interface IFootballEventOptions {
 	event: {

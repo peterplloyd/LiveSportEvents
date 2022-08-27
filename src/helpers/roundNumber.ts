@@ -1,4 +1,4 @@
-export function roundNumber(
+export default function RoundNumber(
 	up: boolean,
 	value: number,
 	decimalPlaces: number = 2
