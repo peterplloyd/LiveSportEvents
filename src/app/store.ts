@@ -1,11 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import LiveFootballEventsReducer from '../features/LiveFootballEvents/FootballEventSlice';
 
-
 export const store = configureStore({
   reducer: {
     liveFootballEvents: LiveFootballEventsReducer
-  },
+  }
 });
 
 export type AppDispatch = typeof store.dispatch;

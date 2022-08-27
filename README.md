@@ -2,11 +2,11 @@
 
 # A few points:
 
-1) I spent 2 hours on this tech test while on a cruise and with spotty internet so this has impacted the quality of my work.
+1. I spent 2 hours on this tech test while on a cruise and with spotty internet so this has impacted the quality of my work.
 
-2) I tried to implement socket.io but the version the server uses is very old so it proved tricky.
+2. I tried to implement socket.io but the version the server uses is very old so it proved tricky.
 
-3) If you don't mind me saying it would be good to update your packages for this tech test. It hasn't been updated since 2019 so I was having compatibility issues with my package.json
+3. If you don't mind me saying it would be good to update your packages for this tech test. It hasn't been updated since 2019 so I was having compatibility issues with my package.json
 
 ## Technology Choices
 
@@ -22,13 +22,13 @@ I think it's clear that the time spent on this has impacted the quality of the p
 
 Requirements
 
--   Docker
--   `docker-compose`
+- Docker
+- `docker-compose`
 
 For reference this application/documentation uses `yarn` however `npm` is also compatible.
 
--   To launch the API run `docker-compose up`.
--   To launch the application run `yarn start`.
+- To launch the API run `docker-compose up`.
+- To launch the application run `yarn start`.
 
 ## Testing
 
