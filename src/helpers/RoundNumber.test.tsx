@@ -1,4 +1,4 @@
-import RoundNumber from './RoundlNumber';
+import RoundNumber from './RoundNumber';
 
 describe('helpers/RoundNumber', () => {
   it('RoundNumber should return a number rounded up when the "up" value is true and the value is greater than .5', () => {
