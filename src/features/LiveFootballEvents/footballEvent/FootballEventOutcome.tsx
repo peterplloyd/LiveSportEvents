@@ -42,7 +42,7 @@ const FootballEventOutcome: React.FC<IFootballOutcomeOptions> = ({ outcomeId }) 
           <p>
             {isDecimalOdds
               ? RoundNumber(true, outcome.price.decimal)
-              : outcome.price.den / outcome.price.num}
+              : outcome.price.den + '/' + outcome.price.num}
           </p>
         </>
       ) : (
