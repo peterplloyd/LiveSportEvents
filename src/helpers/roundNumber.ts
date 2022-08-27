@@ -1,4 +1,4 @@
-export default function RoundNumber(
+function RoundNumber(
 	up: boolean,
 	value: number,
 	decimalPlaces: number = 2
@@ -11,3 +11,5 @@ export default function RoundNumber(
 				`${Math.floor(`${value}e${decimalPlaces}` as any)}e-${decimalPlaces}`
 		  );
 }
+
+export default RoundNumber;
